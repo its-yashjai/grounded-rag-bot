@@ -1,0 +1,39 @@
+:root {
+  --bg: #FDFCF9;
+  --bg-elevated: #FFFFFF;
+  --card: #FFFFFF;
+  --card-warm: #FBF8F2;
+  --card-hover: #FFFDF8;
+  --border: #EBE6DB;
+  --border-strong: #DED7C6;
+  --border-light: #F1EDE4;
+  --text: #1A1917;
+  --text-secondary: #6B6560;
+  --text-faint: #9E9890;
+  --text-muted: #B8B2A7;
+  --accent: #C26A2B;
+  --accent-strong: #A85A24;
+  --accent-soft: #FFF1E6;
+  --accent-softer: #FFF7F0;
+  --accent-ring: rgba(194, 106, 43, 0.14);
+  --success: #3D6B4F;
+  --success-soft: #EAF3EC;
+  --danger: #B5472E;
+  --danger-soft: #FDEBE6;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+  --shadow-xs: 0 1px 2px rgba(26,25,23,0.04);
+  --shadow-sm: 0 2px 8px rgba(26,25,23,0.06);
+  --shadow-md: 0 8px 24px rgba(26,25,23,0.08);
+  --font-sans: "Inter", -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --sidebar-w: 280px;
+}
+* { box-sizing: border-box; margin:0; padding:0; }
+html, body { height:100%; background:var(--bg); color:var(--text); font-family:var(--font-sans); -webkit-font-smoothing:antialiased; }
+button { font-family:inherit; cursor:pointer; border:none; background:none; color:inherit; }
+a { color:inherit; text-decoration:none; }
+.hidden { display:none !important; }
+#root { min-height:100vh; }
