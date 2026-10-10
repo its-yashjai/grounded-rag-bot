@@ -82,12 +82,6 @@ class CrossEncoderReranker(Reranker):
         for c, s in zip(chunks, raw_scores):
             c.relevance_score = 1.0 / (1.0 + math.exp(-float(s)))
 
-            print(
-                f"[RERANK DEBUG] raw_score={float(s):.4f} "
-                f"relevance={c.relevance_score:.4f} "
-                f"text={c.text[:150]!r}"
-            )
-
         chunks.sort(key=lambda c: c.relevance_score, reverse=True)
 
         return super().rerank(chunks, top_k, max_context_tokens)
