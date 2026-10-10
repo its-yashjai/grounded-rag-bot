@@ -2,7 +2,7 @@
 
 > **Stack:** React (Vite + React Router) + FastAPI + Chroma + BM25 + Groq (gpt-oss-20b/120b) + sentence-transformers
 > **Live:** `http://0.0.0.0:8000/app` — each chat has unique URL `/app/<id>`, instant new-chat, sources in blur modal
-> **Repo:** https://github.com/9bishal/grounded-rag-bot.git
+> **Repo:** https://github.com/its-yashjai/grounded-rag-bot.git
 > **Generated for** `grounded-rag-bot`.
 
 ---
