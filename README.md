@@ -1,6 +1,6 @@
 # Domain Knowledge Bot
 
-> **Repo:** https://github.com/9bishal/grounded-rag-bot
+> **Repo:** https://github.com/its-yashjai/grounded-rag-bot
 
 Upload your domain knowledge. Ask anything. Get a fast, grounded answer with sources.
 
@@ -137,7 +137,7 @@ harder deployment would swap in.
 Requires Python 3.11+, and a Groq API key.
 
 ```bash
-git clone https://github.com/9bishal/grounded-rag-bot.git
+git clone https://github.com/its-yashjai/grounded-rag-bot.git
 cd grounded-rag-bot
 cd backend
 cp .env.example .env        # then fill in GROQ_API_KEY
@@ -150,7 +150,7 @@ Open http://localhost:8000 — the frontend is served directly by FastAPI.
 ## Docker
 
 ```bash
-git clone https://github.com/9bishal/grounded-rag-bot.git
+git clone https://github.com/its-yashjai/grounded-rag-bot.git
 cd grounded-rag-bot
 cp backend/.env.example backend/.env   # fill in GROQ_API_KEY
 docker compose up --build
