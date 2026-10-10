@@ -206,3 +206,35 @@ def test_grounding_falls_back_to_fused_score_without_reranker():
 
 def test_grounding_empty_chunks_refuses():
     assert has_sufficient_grounding([]) is False
+
+
+def _fresh_reranker(monkeypatch, enabled: str):
+    """Build the reranker the app would use, for a given setting value."""
+    from app import deps
+    from app.config import get_settings
+
+    monkeypatch.setenv("ENABLE_CROSS_ENCODER_RERANKER", enabled)
+    get_settings.cache_clear()
+    deps.get_reranker.cache_clear()
+    try:
+        return deps.get_reranker()
+    finally:
+        get_settings.cache_clear()
+        deps.get_reranker.cache_clear()
+
+
+def test_cross_encoder_reranker_is_used_when_enabled(monkeypatch):
+    # Regression test: get_reranker() used to return the plain Reranker in
+    # both branches, so the cross-encoder never ran even when enabled.
+    # The model itself loads lazily, so this does not download anything.
+    from app.services.retrieval.reranker import CrossEncoderReranker
+
+    assert isinstance(_fresh_reranker(monkeypatch, "true"), CrossEncoderReranker)
+
+
+def test_plain_reranker_is_used_when_cross_encoder_disabled(monkeypatch):
+    from app.services.retrieval.reranker import CrossEncoderReranker
+
+    reranker = _fresh_reranker(monkeypatch, "false")
+    assert isinstance(reranker, Reranker)
+    assert not isinstance(reranker, CrossEncoderReranker)

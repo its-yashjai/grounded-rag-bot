@@ -13,7 +13,7 @@ from app.services.cache.cache_service import CacheService, get_cache_service
 from app.services.cost.cost_service import CostService
 from app.services.embeddings.embedding_service import EmbeddingService
 from app.services.llm.groq_service import GroqProvider
-from app.services.retrieval.reranker import Reranker
+from app.services.retrieval.reranker import CrossEncoderReranker, Reranker
 from app.services.retrieval.retriever import BM25Index, HybridRetriever
 
 
@@ -52,7 +52,7 @@ def get_retriever() -> HybridRetriever:
 def get_reranker() -> Reranker:
     settings = get_settings()
     if settings.enable_cross_encoder_reranker:
-        return Reranker()
+        return CrossEncoderReranker()
     return Reranker()
 
 
